@@ -1,0 +1,29 @@
+/*대부분의 css처리는 header.css에서 하고 login 했을 때 달라지는 부분만 여기서 처리함
+ 예를 들어, dropDownContent 같은. */
+/*dropdown 버튼의 기본 버튼 css를 없앰*/
+#dropdownButton{
+  border-style: none;
+  cursor: pointer;
+  background-color: inherit;
+}
+
+.show{
+  display: block;
+}
+#menu2{
+  font-size: 20px;
+  font-family: 'Nanum Brush Script', cursive;
+  font-weight: bold;
+  text-align: right;
+  margin-right: 15px;
+
+}
+#menu2>a{
+  color:black;
+}
+#menu2>span{
+  margin-right: 20px;
+}
+#menu2>a:hover{
+  text-decoration: underline;
+}

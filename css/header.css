@@ -1,0 +1,60 @@
+/*기본 처리*/
+ul{
+  list-style: none;
+  padding:0;
+}
+a{
+  text-decoration: none;
+}
+/*wrapper 역할인 #header에 display flex 적용*/
+#header{
+  position: static;
+  display: flex;
+  background-color: white;
+  box-shadow: 3px 3px 3px 3px grey;
+}
+
+/*늘리고 줄일 때 크기 고정을 위해 flex:none;*/
+#header>li, #header>div{
+  flex:none;
+}
+
+/*margin 값을 auto로 줘서 위치 조절*/
+#logo{
+  margin-right: auto;
+}
+#menu{
+  margin-left: auto;
+}
+
+/*menu div 안에 있는 것들을 옆으로 블락을 가진 채 늘어나게 함*/
+#menu>li{
+  display:inline-block;
+}
+
+/*메뉴 링크의 font 설정*/
+.headerDiv, #logo>a{
+  font-size: 35px;
+  font-family: georgia;
+  font-weight: bold;
+  color: black;
+  padding: 20px 10px 20px 10px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+/* headerDiv랑 headerDiv2랑 똑같은데 따로 만들 필요가 없을듯?
+.headerDiv2{
+  font-size: 35px;
+  font-family: georgia;
+  font-weight: bold;
+  color: black;
+  padding: 20px 10px 20px 10px;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+*/
+.headerDiv:hover{
+  text-decoration: underline;
+}

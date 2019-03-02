@@ -1,0 +1,51 @@
+tr{
+  text-align: center;
+
+}
+input{
+  width: 70%;
+  height: 50px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+#user_id{
+  width:65%;
+  margin-left: auto;
+}
+#user_id_check_button{
+  width:5.5%;
+  height: 50px;
+  margin-right: auto;
+
+}
+.button{
+  width:90px;
+}
+p{
+  text-align: center;
+  font-weight: 1000;
+  font-size: 50px;
+}
+#user_password_check_indicator{
+  color:red;
+  height: 0;
+  padding:0;
+  margin:0;
+  border-style: none;
+  opacity: 0;
+}
+#user_id_check_indicator{
+  color:red;
+  height: 0;
+  padding:0;
+  margin:0;
+  border-style: none;
+  opacity: 0;
+
+}
+#idCheckFrame{
+  opacity: 0;
+}
+#idBlock{
+  display: flex;
+}

@@ -1,0 +1,35 @@
+
+tr{
+
+}
+td{
+  display: inline-block;
+  height: 70px;
+  width:700px;
+}
+td>input{
+  height: 60px;
+  width: 80%;
+}
+td>label{
+  width:20%;
+  height: 100%;
+  text-align: center;
+  font-weight: 1000;
+  font-size: 30px;
+
+}
+table{
+  margin-top: 5%;
+}
+p{
+  text-align: center;
+  font-weight: 1000;
+  font-size: 50px;
+}
+h3{
+  text-align: center;
+}
+#submit{
+  width:40%;
+}
