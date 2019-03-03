@@ -1,3 +1,3 @@
 <?php
-  $flagtagdb = mysqli_connect("localhost", "root", "jy1284", "flagtag");
+  $flagtagdb = mysqli_connect("localhost", "flagtag", "john6549", "flagtag");
  ?>
