@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="/css/header.css">
   <link rel="stylesheet" href="/css/loginHeader.css">
   <link rel="stylesheet" href="/css/mainFrame.css">
-  <link rel="stylesheet" href="/css/join.css">
+
 
   <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script&amp;subset=korean" rel="stylesheet">
   <style media="screen">

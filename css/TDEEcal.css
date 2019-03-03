@@ -1,0 +1,52 @@
+tr{
+  text-align: center;
+
+}
+
+p{
+  text-align: center;
+  font-weight: 1000;
+  font-size: 50px;
+}
+
+.intClass{
+  width: 70%;
+  height: 50px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.labelClass{
+  font-weight: 700;
+  font-size: 25px;
+}
+
+#sex>ul{
+
+}
+#sex>li{
+  display: inline-block;
+  position:relative;
+}
+#sex input, #sex label{
+  display: block;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width: 30%;
+}
+#sex input[type="radio"] {
+    opacity:0.011;
+    z-index:100;
+}
+#sex input[type="radio"]:checked + label {
+    background:grey;
+}
+#sex label {
+     padding:5px;
+     border:1px solid #CCC;
+     cursor:pointer;
+     z-index:90;
+}

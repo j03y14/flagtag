@@ -9,7 +9,7 @@
 
 -->
 <HEAD>
-
+  <link rel="stylesheet" href="/css/join.css">
 
   <script type="text/javascript">
     function checkID(){

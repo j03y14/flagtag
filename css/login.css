@@ -1,11 +1,8 @@
-
-tr{
-
-}
 td{
   display: inline-block;
   height: 70px;
   width:700px;
+  text-align: center;
 }
 td>input{
   height: 60px;
@@ -32,4 +29,10 @@ h3{
 }
 #submit{
   width:40%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+#id{
+  margin-left: 30px;
 }

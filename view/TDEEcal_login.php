@@ -13,7 +13,7 @@
         <tr>
           <td>
             <label>아이디</label>
-            <input type="text" name="user_id">
+            <input id ="id"type="text" name="user_id">
           </td>
         </tr>
         <tr>
@@ -25,6 +25,8 @@
         <tr>
           <td>
             <input type="submit" id="submit"name="TDEEcal_login" value="로그인">
+            <br>
+            <a href="/view/TDEEcal.php">아니오. 나중에 로그인 하겠습니다.</a>
           </td>
         </tr>
       </table>

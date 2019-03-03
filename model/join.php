@@ -86,8 +86,8 @@
     ".$ONERM_deadlift;
     echo mysqli_error($flagtagdb);
   } else {
-    echo '<meta charset="utf-8"> 성공했습니다. <a href="/index.php">돌아가기</a>'
-    
+    echo '<meta charset="utf-8"> 성공했습니다. <a href="/index.php">돌아가기</a>';
+
   }
  ?>
  <!--

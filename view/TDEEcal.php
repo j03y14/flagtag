@@ -1,29 +1,6 @@
-TDEE calculator view
-
-
-<HEAD><meta charset="utf-8">
-  <TITLE>join</TITLE>
-
-  <style>
-    tr{
-      text-align: center;
-
-    }
-    input{
-      width: 70%;
-      height: 50px;
-      display: inline-block;
-      margin-bottom: 10px;
-    }
-    .button{
-      width:90px;
-    }
-    p{
-      text-align: center;
-      font-weight: 1000;
-      font-size: 50px;
-    }
-  </style>
+<HEAD>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/css/TDEEcal.css">
 </HEAD>
 
 <body>
@@ -32,26 +9,34 @@ TDEE calculator view
      <table width="940" style="padding:5px 0 5px 0; ">
        <tr>
          <td>
-            <input type="int" placeholder ="키" name="calculator_height">
+            <input class="intClass" type="int" placeholder ="키" name="calculator_height">
          </td>
        </tr>
 
        <tr>
          <td>
-           <input type="int" placeholder ="몸무게" name="calculator_weight">
+           <input class="intClass" type="int" placeholder ="몸무게" name="calculator_weight">
          </td>
        </tr>
 
        <tr>
          <td>
-           <input type="radio" name="calculator_sex" value="male"> 남자
-           <input type="radio" name="calculator_sex" value="female"> 여자
+           <ul id="sex">
+             <li>
+               <input type="radio" id="calculator_sex_male"name="calculator_sex" value="male">
+               <label for="calculator_sex_male">남자</label>
+             </li>
+             <li>
+               <input type="radio" id="calculator_sex_female"name="calculator_sex" value="female">
+               <label for="calculator_sex_female">여자</label>
+             </li>
+           </ul>
          </td>
        </tr>
 
        <tr>
          <td>
-           <input type="radio" placeholder ="나이(만)" name="calculator_age">
+           <input class="intClass" type="int" placeholder ="나이(만)" name="calculator_age">
          </td>
        </tr>
 
@@ -68,7 +53,7 @@ TDEE calculator view
        </tr>
        <tr>
          <td>
-           <input type="int" placeholder ="목표체중(kg)" name="calculator_goalweight">
+           <input class="intClass" type="int" placeholder ="목표체중(kg)" name="calculator_goalweight">
          </td>
        </tr>
 
