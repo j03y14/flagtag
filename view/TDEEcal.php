@@ -21,7 +21,7 @@
 
        <tr>
          <td>
-           <ul id="sex">
+           <ul class="radioUL" id="sex";>
              <li>
                <input type="radio" id="calculator_sex_male"name="calculator_sex" value="male">
                <label for="calculator_sex_male">남자</label>
@@ -42,13 +42,28 @@
 
        <tr>
          <td>
-           <input type="radio" name ="calculator_workoutdayperweek" value="1.2">주 0~1회 운동
-           <input type="radio" name ="calculator_workoutdayperweek" value="1.375">주 1~3회 운동
-           <input type="radio" name ="calculator_workoutdayperweek" value="1.55">주 3~5회 훈련
-           <input type="radio" name ="calculator_workoutdayperweek" value="1.725">주 5~7회 훈련
-           <input type="radio" name ="calculator_workoutdayperweek" value="1.9">주 7회 높은강도 훈련
-
-
+           <ul class="radioUL" id="workoutdayPerWeek">
+             <li>
+               <input type="radio" id="workoutdayPerWeek0~1"name="calculator_workoutdayperweek" value="1.2">
+               <label for="workoutdayPerWeek0~1">주0~1회 운동</label>
+             </li>
+             <li>
+               <input type="radio" id="workoutdayPerWeek1~3"name="calculator_workoutdayperweek" value="1.35">
+               <label for="workoutdayPerWeek1~3">주1~3회 운동</label>
+             </li>
+             <li>
+               <input type="radio" id="workoutdayPerWeek3~5"name="calculator_workoutdayperweek" value="1.55">
+               <label for="workoutdayPerWeek3~5">주3~5회 훈련</label>
+             </li>
+             <li>
+               <input type="radio" id="workoutdayPerWeek5~7"name="calculator_workoutdayperweek" value="1.725">
+               <label for="workoutdayPerWeek5~7">주5~7회 훈련</label>
+             </li>
+             <li>
+               <input type="radio" id="workoutdayPerWeek7"name="calculator_workoutdayperweek" value="1.9">
+               <label for="workoutdayPerWeek7">주7회 높은 강도 훈련</label>
+             </li>
+           </ul>
          </td>
        </tr>
        <tr>
@@ -59,16 +74,30 @@
 
        <tr>
          <td>
-           <input type="radio" name ="calculator_goalperiod" value="30">한 달
-           <input type="radio" name ="calculator_goalperiod" value="60">두 달
-           <input type="radio" name ="calculator_goalperiod" value="90">세 달
-           <input type="radio" name ="calculator_goalperiod" value="120">네 달
-
+           <ul class="radioUL" id="calculator_goalperiod">
+             <li>
+               <input type="radio" id="calculator_goalperiod_one_month"name="calculator_goalperiod" value="30">
+               <label for="calculator_goalperiod_one_month">한 달만에</label>
+             </li>
+             <li>
+               <input type="radio" id="calculator_goalperiod_two_month"name="calculator_goalperiod" value="60">
+               <label for="calculator_goalperiod_two_month">두 달만에</label>
+             </li>
+             <li>
+               <input type="radio" id="calculator_goalperiod_three_month"name="calculator_goalperiod" value="90">
+               <label for="calculator_goalperiod_three_month">세 달만에</label>
+             </li>
+             <li>
+               <input type="radio" id="calculator_goalperiod_four_month"name="calculator_goalperiod" value="30">
+               <label for="calculator_goalperiod_four_month">네 달만에</label>
+             </li>
+           </ul>
          </td>
        </tr>
 
        <tr>
          <td colspan="2" align="center">
+           <br>
            <input class="button" type="submit" value="확인">
            <input class="button" type="reset" value="취소">
          </td>
