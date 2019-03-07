@@ -82,6 +82,27 @@
                  <input type="int" placeholder ="데드리프트 1RM" value="<?php echo $user['1RM_deadlift'];?>" name="1RM_deadlift">
                </td>
              </tr>
+             <tr>
+               <td>BMR</td>
+               <td>
+                 <input type="int" placeholder ="BMR" value="<?php echo $user['BMR'];?>" name="BMR" readonly>
+               </td>
+             </tr>
+             <tr>
+               <td>TDEE</td>
+               <td>
+                 <input type="int" placeholder ="TDEE" value="<?php echo $user['TDEE'];?>" name="TDEE" readonly>
+               </td>
+             </tr>
+             <tr>
+               <td>하루 목표 칼로리</td>
+               <td>
+                 <input type="int" placeholder ="goalCaloriePerDay" value="<?php echo $user['goalCaloriePerDay'];?>" name="goalCaloriePerDay" readonly>
+               </td>
+             </tr>
+             <tr>
+               BMR, TDEE, 하루 목표 칼로리는 TDEE CALCULATOR를 통해서만 바꿀 수 있습니다.
+             </tr>
 
              <tr>
                <td colspan="2" align="center">
