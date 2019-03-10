@@ -1,0 +1,29 @@
+
+.table{
+  width: 100%;
+}
+.table td,.info th,#indicator td{
+  width: 13%;
+}
+.table tr{
+  height: 140px;
+}
+.table td{
+  border-style: solid;
+}
+.info th{
+  font-size: 25px;
+}
+#indicatorContainer tr{
+  height: 60px;
+}
+#indicator td{
+  text-align: center;
+  border-style: none;
+}
+#indicator a{
+  color: black;
+  font-size: 50px;
+  font-size: 50px;
+  font-weight: bold;
+}
