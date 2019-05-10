@@ -1,0 +1,42 @@
+table{
+  border-collapse: collapse;
+}
+td{
+  margin: 0;
+  border-style: solid;
+}
+
+.caladerButton a{
+  text-decoration: none;
+  color: black;
+  font-size:20px;
+  font-weight: bold;
+}
+.date{
+  height: 100px;
+  width: 100px;
+}
+.routine{
+  border-right-style:  none;
+  border-left-style: none;
+  border-top-style: none;
+
+  border-bottom-style: double;
+  border-bottom-color: #444444;
+  border-collapse: collapse;
+  font-size: 20px;
+}
+
+.content{
+  border-left-style: solid;
+  border-left-color: #444444;
+  border-left-width: 1px;
+  border-top-style: none;
+  border-bottom-style: solid;
+  border-bottom-color: #444444;
+  border-bottom-width: 1px;
+  border-right-style: solid;
+  border-right-color: #444444;
+  border-right-width: 1px;
+  width: 55px;
+}

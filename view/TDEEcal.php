@@ -6,7 +6,7 @@
 <body>
   <p>TDEE calculator</p>
   <form action="/model/TDEEcal.php"name="write_form_calculator" method="post">
-     <table width="940" style="padding:5px 0 5px 0; ">
+     <table style="padding:5px 0 5px 0; ">
        <tr>
          <td>
             <input class="intClass" type="int" placeholder ="키" name="calculator_height">
@@ -21,7 +21,7 @@
 
        <tr>
          <td>
-           <ul class="radioUL" id="sex";>
+           <ul class="radioUL" id="sex">
              <li>
                <input type="radio" id="calculator_sex_male"name="calculator_sex" value="male">
                <label for="calculator_sex_male">남자</label>
@@ -53,15 +53,15 @@
              </li>
              <li>
                <input type="radio" id="workoutdayPerWeek3~5"name="calculator_workoutdayperweek" value="1.55">
-               <label for="workoutdayPerWeek3~5">주3~5회 훈련</label>
+               <label for="workoutdayPerWeek3~5"><span class="wordNonBreak">주 5회 운동</span></label>
              </li>
              <li>
                <input type="radio" id="workoutdayPerWeek5~7"name="calculator_workoutdayperweek" value="1.725">
-               <label for="workoutdayPerWeek5~7">주5~7회 훈련</label>
+               <label for="workoutdayPerWeek5~7"><span class="wordNonBreak">주 7회 운동</span></label>
              </li>
              <li>
                <input type="radio" id="workoutdayPerWeek7"name="calculator_workoutdayperweek" value="1.9">
-               <label for="workoutdayPerWeek7">주7회 높은 강도 훈련</label>
+               <label for="workoutdayPerWeek7"><span class="wordNonBreak">주 7회 힘든 운동</span></label>
              </li>
            </ul>
          </td>

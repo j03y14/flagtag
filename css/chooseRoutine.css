@@ -5,7 +5,7 @@ table{
 }
 tr{
   text-align: center;
-  width:80%;
+  width: 80%;
 }
 
 p{
@@ -23,7 +23,7 @@ p{
 
 .labelClass{
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .radioUL{
@@ -44,7 +44,6 @@ p{
   left:0;
   right:0;
   bottom:0;
-  height:max-content;
 }
 .radioUL input[type="radio"] {
   opacity:0.011;
@@ -59,29 +58,29 @@ p{
   z-index:1;
   line-height: 43px;
 }
-
 #sex li{
   width: 34.6%;
 }
 #workoutdayPerWeek li{
-  width:13.6%;
+  width:23%;
 }
-#calculator_goalperiod li{
+#hour li{
+  width:34.6%;
+}
+
+#place li{
+  width:23%;
+}
+
+#career li{
   width:17.2%;
 }
 
-
+#purpose li{
+  width: 23%;
+}
 
 .button{
   width:80px;
   height:40px;
-}
-@media screen and (max-width: 960px) {
-  #workoutdayPerWeek li{
-    font-size: 13px;
-    height:90px
-  }
-  .wordNonBreak{
-    word-break: keep-all;
-  }
 }

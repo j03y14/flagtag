@@ -14,6 +14,12 @@
 .info th{
   font-size: 25px;
 }
+.caladerButton a{
+  text-decoration: none;
+  color: black;
+  font-size:20px;
+  font-weight: bold;
+}
 #indicatorContainer tr{
   height: 60px;
 }

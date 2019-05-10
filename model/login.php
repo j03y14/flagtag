@@ -12,7 +12,7 @@
     $_SESSION['is_login'] = ture;
     $_SESSION['user_id'] = $user['user_id'];
     $_SESSION['user_name'] = $user['user_name'];
-    header('Location: ../index.php');
+    header('Location: ../index.php?menu=main');
   }else{
     echo '<meta charset="utf-8"> 회원을 찾을 수 없습니다.';
     echo '<meta charset="utf-8"> <a href="/?menu=login">돌아가기</a>';

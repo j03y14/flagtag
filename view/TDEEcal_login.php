@@ -8,7 +8,7 @@
     <p>로그인 하시겠습니까?</p>
     <h3>로그인 후에 더 많은 서비스를 이용하실 수 있습니다.</h3>
 
-    <form class="" action="/view/TDEEcal.php" method="post" align="center">
+    <form class="" action="/model/login.php" method="post" align="center">
       <table align = "center">
         <tr>
           <td>

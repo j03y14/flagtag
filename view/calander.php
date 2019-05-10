@@ -1,5 +1,20 @@
 <?php
+  include "./model/dbConnect.php";
   include "./model/calculateDate.php";
+  date_default_timezone_set('Asia/Seoul');
+  $sql = "SELECT user_routine_startday
+                        FROM user
+                        WHERE user_id='$_SESSION[user_id]'";
+  $sqlResult = mysqli_query($flagtagdb,$sql);
+  $user_information = mysqli_fetch_array($sqlResult);
+
+  $today = date_create(date("Y-n-j")); // 0을 포함하지 않는 일
+  //var_dump($today);
+
+  $user_routine_startday = date("Y-n-j",strtotime($user_information['user_routine_startday']."-1 days"));
+  //var_dump($user_routine_startday);
+
+
  ?>
 
 <!DOCTYPE html>
@@ -68,7 +83,9 @@
             // 8. 첫번째 주이고 시작요일보다 $j가 작거나 마지막주이고 $j가 마지막 요일보다 크면 표시하지 않음
             echo '<td height="50" valign="top">';
             if (!(($i == 1 && $j < $start_week) || ($i == $total_week && $j > $last_week))) {
+                $tdday = date_create($year.'-'.$month.'-'.$day);
 
+                $todayIsNthDay = date_diff($tdday,date_create($user_routine_startday));
                 if ($j == 0) {
                     // 9. $j가 0이면 일요일이므로 빨간색
                     $style = "holy";
@@ -86,10 +103,16 @@
                     echo '<font class='.$style.'>';
                     echo $day.' today';
                     echo '</font>';
+
                 }else{
                   echo '<font class='.$style.'>';
                   echo $day;
                   echo '</font>';
+
+                }
+                if($todayIsNthDay->days<29&&$todayIsNthDay->invert==1){
+
+                    echo '<br><br>day '.$todayIsNthDay->days;
                 }
                 // 14. 날짜 증가
                 $day++;

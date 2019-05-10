@@ -41,7 +41,7 @@
   <iframe width="0" height="0" id='idCheckFrame'></iframe>
 
   <form action="/model/join.php"name="write_form_member" method="post">
-     <table width="940" style="padding:5px 0 5px 0; ">
+     <table width="100%" style="padding:5px 0 5px 0; ">
        <tr>
          <div>
            <td id="idBlock">
@@ -92,29 +92,7 @@
          </td>
        </tr>
 
-       <tr>
-         <td>
-           <input type="int" placeholder ="기초대사량" name="user_TDEE">
-         </td>
-       </tr>
 
-       <tr>
-         <td>
-           <input type="int" placeholder ="벤치프레스 1RM" name="1RM_benchpress">
-         </td>
-       </tr>
-
-       <tr>
-         <td>
-           <input type="int" placeholder ="스쿼트 1RM"name="1RM_squat">
-         </td>
-       </tr>
-
-       <tr>
-         <td>
-           <input type="int" placeholder ="데드리프트 1RM"name="1RM_deadlift">
-         </td>
-       </tr>
 
        <tr>
          <td colspan="2" align="center">

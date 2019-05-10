@@ -10,7 +10,7 @@
   $calculator_goalweight=$_POST['calculator_goalweight'];
   $calculator_goalperiod=$_POST['calculator_goalperiod'];
 
-  if ($calculator_sex==male){
+  if ($calculator_sex== 'male'){
     $BMR=66+(13.8 * $calculator_weight)+(5 * $calculator_height)-(6.8 * $calculator_age);
   }
   else{
@@ -19,7 +19,7 @@
   $TDEE= $BMR * $calculator_workoutdayperweek;
   $DIETcalorie_per_day = $TDEE + ($calculator_goalweight - $calculator_weight)*7000/$calculator_goalperiod;
 
-  if(isset($_SESSION)){
+  if(!empty($_SESSION)){
     $sql = "UPDATE user
             SET
             BMR = $BMR,
@@ -32,12 +32,13 @@
       echo mysqli_error($flagtagdb);
     }
     echo $_SESSION['user_id'].'님<br>';
+    echo'<br>mypage에 정보가 추가 되었습니다.';
   }
 
   echo '<meta charset="utf-8"> BMR(기초대사량):'.$BMR;
-  echo'<br><meta charset="utf-8"> TDEE(하루필요열량):'.$TDEE;
+  echo'<br><meta charset="utf-8"> TDEE(1일 에너지 소비량):'.$TDEE;
   echo'<br><meta charset="utf-8"> 목표 체중에 따르는 하루 섭취열량:'.$DIETcalorie_per_day;
-  echo'<br>mypage에 정보가 추가 되었습니다.';
+
   echo'<br><br> <a href="../index.php">홈</a>';
 
 ?>

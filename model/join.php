@@ -7,41 +7,40 @@
   $ONERM_benchpress=0;
   $ONERM_deadlift=0;
 
-  var_dump($_POST);
+
   echo "<br><br>";
 
   if ($_POST['user_height']!=0) {
       $user_height = $_POST['user_height'];
-      echo "_POST['user_height']가 설정되어 있음:".$_POST['user_height']."<br>";
   }
 
 
   if ($_POST['user_weight']!=0) {
       $user_weight = $_POST['user_weight'];
-      echo "_POST['user_weight']가 설정되어 있음:".$_POST['user_weight']."<br>";
+
   }
 
 
   if ($_POST['user_TDEE']!=0) {
       $user_TDEE = $_POST['user_TDEE'];
-      echo "_POST['user_TDEE']가 설정되어 있음:".$_POST['user_TDEE']."<br>";
+
   }
 
   if ($_POST['1RM_squat']!=0) {
       $ONERM_squat = $_POST['1RM_squat'];
-      echo "_POST['1RM_squat']가 설정되어 있음:".$_POST['1RM_squat']."<br>";
+
   }
 
 
   if ($_POST['1RM_benchpress']!=0) {
       $ONERM_benchpress = $_POST['1RM_benchpress'];
-      echo "_POST['1RM_benchpress']가 설정되어 있음:".$_POST['1RM_benchpress']."<br>";
+
   }
 
 
   if ($_POST['1RM_deadlift']!=0) {
       $ONERM_deadlift = $_POST['1RM_deadlift'];
-      echo "_POST['1RM_deadlift']가 설정되어 있음:".$_POST['1RM_deadlift']."<br>";
+
   }
 
 
@@ -55,7 +54,7 @@
         user_phonenumber,
         user_height,
         user_weight,
-        user_TDEE,
+        TDEE,
         1RM_squat,
         1RM_benchpress,
         1RM_deadlift

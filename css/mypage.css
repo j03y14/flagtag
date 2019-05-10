@@ -1,0 +1,36 @@
+p{
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  text-decoration: none;
+}
+table{
+  margin: 10px auto;
+  width:90%;
+}
+.label{
+  width: 23%;
+  font-size: 18px;
+}
+input{
+  width: 100%;
+  font-size: 18px;
+  height: 50px;
+}
+.button{
+  width:14.5%;
+  text-align: center;
+}
+.rm_calculator input{
+  display: inline-block;
+  width: 41%;
+}
+#rmButton{
+  width: 14%;
+  font-size: 15px;
+}
+#tt{
+  text-align: center;
+  text-decoration: underline;
+  font-size:  18px;
+}
