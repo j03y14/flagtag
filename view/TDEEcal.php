@@ -44,23 +44,23 @@
          <td>
            <ul class="radioUL" id="workoutdayPerWeek">
              <li>
-               <input type="radio" id="workoutdayPerWeek0~1"name="calculator_workoutdayperweek" value="1.2">
-               <label for="workoutdayPerWeek0~1">주0~1회 운동</label>
+               <input type="radio" id="workoutdayPerWeek0~1"name="calculator_workoutdayperweek" value="1.15">
+               <label for="workoutdayPerWeek0~1">주0~2회 운동</label>
              </li>
              <li>
-               <input type="radio" id="workoutdayPerWeek1~3"name="calculator_workoutdayperweek" value="1.35">
-               <label for="workoutdayPerWeek1~3">주1~3회 운동</label>
+               <input type="radio" id="workoutdayPerWeek1~3"name="calculator_workoutdayperweek" value="1.325">
+               <label for="workoutdayPerWeek1~3">주3~4회 운동</label>
              </li>
              <li>
-               <input type="radio" id="workoutdayPerWeek3~5"name="calculator_workoutdayperweek" value="1.55">
+               <input type="radio" id="workoutdayPerWeek3~5"name="calculator_workoutdayperweek" value="1.525">
                <label for="workoutdayPerWeek3~5"><span class="wordNonBreak">주 5회 운동</span></label>
              </li>
              <li>
-               <input type="radio" id="workoutdayPerWeek5~7"name="calculator_workoutdayperweek" value="1.725">
+               <input type="radio" id="workoutdayPerWeek5~7"name="calculator_workoutdayperweek" value="1.7">
                <label for="workoutdayPerWeek5~7"><span class="wordNonBreak">주 7회 운동</span></label>
              </li>
              <li>
-               <input type="radio" id="workoutdayPerWeek7"name="calculator_workoutdayperweek" value="1.9">
+               <input type="radio" id="workoutdayPerWeek7"name="calculator_workoutdayperweek" value="1.875">
                <label for="workoutdayPerWeek7"><span class="wordNonBreak">주 7회 힘든 운동</span></label>
              </li>
            </ul>

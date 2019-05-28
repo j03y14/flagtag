@@ -1,0 +1,48 @@
+hr{
+  width:60%;
+}
+.weekRoutineToggle{
+  width:100%;
+}
+.weekRoutine{
+  display:none;
+  text-transform: center;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-collapse: separate;
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.container{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.weekRow{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.todayRow{
+  font-size: 23px;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+.todayRow div{
+  line-height: 1;
+}
+.checkboxButton{
+  background-color: inherit; /* Blue background */
+  border: none; /* Remove borders */
+}
+}
+@media screen and (max-width: 960px) {
+  .todayRow{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+}

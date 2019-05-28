@@ -1,35 +1,57 @@
 
 .table{
   width: 100%;
+  font-family: tahoma;
 }
-.table td,.info th,#indicator td{
+.info th,#indicator td{
   width: 13%;
+  font-weight: normal;
 }
 .table tr{
   height: 140px;
 }
-.table td{
+.days td{
   border-style: solid;
 }
 .info th{
   font-size: 25px;
 }
-.caladerButton a{
-  text-decoration: none;
-  color: black;
-  font-size:20px;
-  font-weight: bold;
-}
-#indicatorContainer tr{
+
+.indicatorContainer tr{
   height: 60px;
 }
-#indicator td{
+.indicatorContainer td{
   text-align: center;
   border-style: none;
 }
 #indicator a{
   color: black;
-  font-size: 50px;
-  font-size: 50px;
+  font-size: 28px;
   font-weight: bold;
+}
+.days{
+  border: 1px solid rgb(222, 226, 230);
+  font-size: 20px;
+}
+@media screen and (max-width: 600px) {
+  #indicator a{
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .table tr{
+    height: 80px;
+  }
+  .info th{
+    font-size: 20px;
+  }
+  .indicatorContainer tr{
+    height: 50px;
+  }
+  .table td{
+    padding: 0.2rem;
+  }
+  .days{
+    font-size: 13px ;
+  }
 }

@@ -10,7 +10,9 @@
     $SendRoutineSql = "
       UPDATE user
       SET user_routine = '$routine',
-          user_routine_startday = '$combine'
+          user_routine_startday = '$combine',
+          day = 1,
+          week=1
       WHERE user_id = '$_SESSION[user_id]'";
 
       $joinSqlResult = mysqli_query($flagtagdb,$SendRoutineSql);

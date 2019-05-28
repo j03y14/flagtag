@@ -152,7 +152,7 @@ a{
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">루틴</a>
             <div class="dropdown-menu" id="routineDropdown">
               <a class="dropdown-item" href="?menu=routine">나의 루틴</a>
-              <a class="dropdown-item" href="?menu=chooseRoutine">루틴 추천</a>
+              <a class="dropdown-item" href="?menu=routineMall">루틴 추천</a>
             </div>
           </li>
 
@@ -182,7 +182,7 @@ a{
         <a class="nav-link" href="?menu=routine">나의 루틴</a>
       </li>
       <li>
-        <a class="nav-link" href="?menu=chooseRoutine">루틴 추천</a>
+        <a class="nav-link" href="?menu=routineMall">루틴 추천</a>
       </li>
       <li>
         <a class="nav-link" href="?menu=calander">달력</a>

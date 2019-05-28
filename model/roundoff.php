@@ -18,7 +18,7 @@ return $r;
 function final_weight($thisType,$thisWeight){
   global $user_information;
   if ($thisType == "squat"){
-   echo roundoff($thisWeight*$user_information['1RM_squat'])."kg X";
+   echo roundoff($thisWeight*$user_information['1RM_squat'])."kg X ";
  }
  else if ($thisType == "benchpress"){
    echo roundoff($thisWeight*$user_information['1RM_benchpress'])."kg X";
@@ -44,8 +44,11 @@ function final_weight($thisType,$thisWeight){
  else if ($thisType == "barbellrow"){
    echo roundoff($thisWeight*$user_information['1RM_benchpress']*0.7)."kg X";
  }
- else if ($thisType == "free_training1"||"free_training2"){
-   echo "본인에게 알맞는 무게"."X";
+ else if ($thisType == "free_training1"||$thisType =="free_training2"||$thisType=="core_training"){
+   echo "적정 무게 "."X";
+ }
+ else if($thisType=="chinup"||$thisType=="pullup"){
+   echo "실패지점까지";
  }
 }
 ?>

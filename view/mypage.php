@@ -14,7 +14,7 @@
       var R = document.getElementById("R").value;
       document.getElementById('RM').value = eval(W/[1.0278-(0.0278*R)]);
     }
-    function showPopup() { 
+    function showPopup() {
       window.open("../view/TDEEcal.php", "TDEE popup", "width=1000, height=700, left=100, top=100");
     }
     </script>
@@ -87,21 +87,21 @@
        <tr>
          <td class="label">벤치프레스 1RM</td>
          <td>
-           <input type="int" onclick = "showPopup()" placeholder ="벤치프레스 1RM" value="<?php echo $user['1RM_benchpress'];?>"name="1RM_benchpress">
+           <input type="int"  placeholder ="벤치프레스 1RM" value="<?php echo $user['1RM_benchpress'];?>"name="1RM_benchpress">
          </td>
        </tr>
 
        <tr>
          <td class="label">스쿼트 1RM</td>
          <td>
-           <input type="int" onclick = "showPopup()" placeholder ="스쿼트 1RM" value="<?php echo $user['1RM_squat'];?>" name="1RM_squat">
+           <input type="int" placeholder ="스쿼트 1RM" value="<?php echo $user['1RM_squat'];?>" name="1RM_squat">
          </td>
        </tr>
 
        <tr>
          <td class="label">데드리프트 1RM</td>
          <td>
-           <input type="int" onclick = "showPopup()" placeholder ="데드리프트 1RM" value="<?php echo $user['1RM_deadlift'];?>" name="1RM_deadlift">
+           <input type="int"  placeholder ="데드리프트 1RM" value="<?php echo $user['1RM_deadlift'];?>" name="1RM_deadlift">
          </td>
        </tr>
        <tr>
@@ -114,19 +114,19 @@
        <tr>
          <td class="label">기초대사량</td>
          <td>
-           <input type="int" placeholder ="BMR" value="<?php echo $user['BMR'];?>" name="BMR" readonly>
+           <input type="int" onclick = "showPopup()" placeholder ="BMR" value="<?php echo $user['BMR'];?>" name="BMR" readonly>
          </td>
        </tr>
        <tr>
          <td class="label">일일 칼로리 소비량</td>
          <td>
-           <input type="int" placeholder ="TDEE" value="<?php echo $user['TDEE'];?>" name="TDEE" readonly>
+           <input type="int" onclick = "showPopup()" placeholder ="TDEE" value="<?php echo $user['TDEE'];?>" name="TDEE" readonly>
          </td>
        </tr>
        <tr>
          <td class="label">하루 목표 칼로리</td>
          <td>
-           <input type="int" placeholder ="goalCaloriePerDay" value="<?php echo $user['goalCaloriePerDay'];?>" name="goalCaloriePerDay" readonly>
+           <input type="int" onclick = "showPopup()" placeholder ="goalCaloriePerDay" value="<?php echo $user['goalCaloriePerDay'];?>" name="goalCaloriePerDay" readonly>
          </td>
        </tr>
 

@@ -1,0 +1,11 @@
+#mainframe{
+  position: relative;
+
+  min-height: 900px;
+
+  margin-top: 10px;
+  margin-bottom: 15px;
+
+  box-shadow: 5px 5px 5px 5px grey;
+
+}
