@@ -1,0 +1,20 @@
+.routineType{
+  position : sticky;
+  left: 0;
+  background: white;
+
+}
+.routineType::left, .routineType::right{
+  border: 1px solid #dee2e6;
+
+}
+.routineTable{
+  width : 100%;
+
+
+}
+.routine-table-container{
+  overflow-x: auto;
+  width : 95%;
+  margin:auto;
+}

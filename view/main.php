@@ -65,6 +65,7 @@
    $thisDay = $user_information['day'];
 
    if($maxWeek<$thisWeek){
+
      echo "<h3><a href='?menu=routine'>루틴 완료! 루틴 새로 선택하러 가기</a> ";
    }else{
      echo "<div class='container todayRoutine justify-content-center'>";

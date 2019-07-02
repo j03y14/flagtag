@@ -165,10 +165,11 @@ a{
 
   </nav>
 </div>
-
+<!--메뉴 나왔을 때 바깥 부분-->
 <div id="overlay">
 
 </div>
+
 
 <!--화면이 작아지고 토글 버튼을 누르면 이것이 나타난다-->
 <div class="container sidebar-container">

@@ -1,4 +1,4 @@
-<p>Routine Mall</p>
+
 
 <div class="container-fluid">
 
@@ -6,258 +6,288 @@
 
 <HEAD>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="/css/chooseRoutine.css">
+  <link rel="stylesheet" href="/css/routineMall.css">
+  <link rel="stylesheet" href="/css/modal.css">
 </HEAD>
 
 <body>
   <?php
     include_once "./model/dbConnect.php";
-    if (!function_exists('mysqli_fetch_all')) {
-        function mysqli_fetch_all($result, $mode = 0) {
-            $all = FALSE;
-            if ($result) {
-                $all = array();
-                $i = 0;
-                while($row = mysqli_fetch_array($result)) {
-                    $all[$i] = array();
-                    foreach($row as $key => $value) {
-                        if (!is_numeric($key)) {
-                            $all[$i][$key] = $value;
-                        }
-                    }
-                    $i++;
-                }
-            }
-            return $all;
-        }
-    }
+
   $SendRoutineCode = "SELECT routineCode
                         FROM RoutineInfo";
   $routineSqlCode = mysqli_query($flagtagdb,$SendRoutineCode);
   $routine_Code = mysqli_fetch_all($routineSqlCode,MYSQLI_ASSOC);
   $code_array = array_column($routine_Code,'routineCode');
-  var_dump($code_array);?>
+?>
 
-<script type="text/javascript">
-var bDisplay = true;
-var code_arr = <?php echo json_encode($code_array); ?>;
-var i = 0;
-/*for(i=0;i<<?php count($code_array)?>;i++){
-  code_arr.push(<?php $code_array[$i] ?>);
-}*/
-function disp(x,id){
-  /*var pc = document.getElementsByClassName('present_code');
-  make_present_code(){
-    for(i=0;i<pc.length;i++){
-      if(document.getElementById(id).checked){
-    r+=pc[i].value;
-    }
-    else{}
-    }
-  return r;
-}*/
-  var con = document.getElementsByClassName('col');
+  <script type="text/javascript">
 
-  /*function numberOf(p){//해당 자리수 뽑아내는 함수
-    return Math.floor(p/x)%2;}*/
-  if(document.getElementById(id).checked){
-    i+=x;
-    var j;
-    for(j=0;j<con.length;j++){
-      /*var p1 = numberOf(i);//자리수에 따르는 코드의 수 0혹은1
-      var p2 = numberOf(code_arr[j]);//루틴 코드의 해당 자리수 정보
-      console.log("p1="+p1+"<br>");
-      console.log("p2="+p2+"<br>");*/
-        if((i&code_arr[j]) ==i){
-          console.log("ifif")
-          console.log(code_arr);
-          console.log(i);
-          console.log(i&code_arr[j]);
-          con[j].style.display = 'block';
-        }else{
-          console.log("ifelse")
-          console.log(code_arr);
-          console.log(i);
-          console.log(i&code_arr[j]);
-          con[j].style.display = 'none';
+    // Get the <span> element that closes the modal
+
+    var code_arr = <?php echo json_encode($code_array); ?>;
+    var i = 0;
+
+    function disp(x,id){
+      console.log(id+'호출');
+      var nowChecked = document.getElementById(id);
+      console.log('nowchecked: '+ nowChecked.checked);
+      var con = document.getElementsByClassName('col');
+      //선택된 radio button의 분류, name을 불러온다.
+      var name = nowChecked.name;
+      console.log('name: '+ name);
+      //name을 이용해서 name_radio_previous dom에 접근
+      var previous = document.getElementById(name+"_radio_previous");
+      console.log('previous.value_name: '+ previous.getAttribute('value_name'));
+      var selectedCondition = document.getElementById('selected_'+id);
+      if(previous.value==nowChecked.value){
+        nowChecked.checked=false;
+
+      }
+      if(nowChecked.checked){
+        selectedCondition.style.display='block';
+        if(previous.getAttribute('value_name')!='0'){
+          console.log('seltected_'+previous.getAttribute('value_name'));
+          document.getElementById('selected_'+previous.getAttribute('value_name')).style.display='none';
         }
-    }}
-  else{
-    i-=x;
-    var j;
-    for(j=0;j<con.length;j++){
-      /*var p1 = numberOf(i);//자리수에 따르는 코드의 수 0혹은1
-      var p2 = numberOf(code_arr[j]);//루틴 코드의 해당 자리수 정보
-      console.log("p1="+p1+"<br>");
-      console.log("p2="+p2+"<br>");*/
-        if((i&code_arr[j]) ==i){
-          console.log("elseif")
-          console.log(code_arr);
-          console.log(i);
-          console.log(i&code_arr[j]);
-          con[j].style.display = 'block';
-        }else{
-          console.log("elseselse")
-          console.log(code_arr);
-          console.log(i);
-          console.log(i&code_arr[j]);
-          con[j].style.display = 'none';
+
+
+        i+=x;
+        i-=previous.value;
+        var j;
+        for(j=0;j<con.length;j++){
+
+            if((i&code_arr[j]) ==i){
+
+              con[j].style.display = 'block';
+            }else{
+
+              con[j].style.display = 'none';
+            }
         }
+      }else{
+        selectedCondition.style.display='none';
+        i-=x;
+        var j;
+        for(j=0;j<con.length;j++){
+
+            if((i&code_arr[j]) ==i){
+
+              con[j].style.display = 'block';
+            }else{
+
+              con[j].style.display = 'none';
+            }
+        }
+      }
+      if(previous.value==nowChecked.value){
+        previous.value=0;
+        previous.setAttribute('value_name',"0");
+      }else{
+        previous.value = nowChecked.value;
+        previous.setAttribute('value_name',nowChecked.id);
+
+      }
+
+      console.log("i: "+i);
     }
-  }
-}
 
-</script>
+    function displayCheckbox(id){
+      var checkbox_container = document.getElementsByClassName('checkbox_container');
+      for(k=0; k<checkbox_container.length;k++){
+        checkbox_container[k].style.display='none';
+      }
+      var checkbox_id = id +"_checkbox";
 
-     <table  style="padding:5px 0 5px 0; ">
-
-       <tr><td>성별 : </td>
-         <td>
-           <ul class="radioUL" id="sex">
-             <li>
-               <input type="checkbox" id="calculator_sex_male" name="present_code"  value=16 onclick ="disp(16,'calculator_sex_male')">
-               <label class = 'container' for="calculator_sex_male">남자</label><span class="checkmark"></span>
-             </li>
-             <li>
-               <input type="checkbox" id="calculator_sex_female" name="present_code" value=8 onclick ="disp(8,'calculator_sex_female')">
-               <label class = 'container'for="calculator_sex_female">여자</label><span class="checkmark"></span>
-             </li>
-           </ul>
-         </td>
-       </tr>
-
-       <tr><td>나이 : </td>
-         <td>
-           <ul class="radioUL" id="age">
-             <li>
-               <input type="checkbox" id="calculator_age_under35" name="present_code" value=1 onclick ="disp(1,'calculator_age_under35')">
-               <label class = 'container'for="calculator_age_under35">35세 미만</label><span class="checkmark"></span>
-             </li>
-             <li>
-               <input type="checkbox" id="calculator_age_under55" name="present_code" value=2 onclick ="disp(2,'calculator_age_under55')">
-               <label class = 'container'for="calculator_age_under55">55세 미만</label><span class="checkmark"></span>
-             </li>
-             <li>
-               <input type="checkbox" id="calculator_age_over55" name="present_code" value=4 onclick ="disp(4,'calculator_age_over55')">
-               <label class = 'container'for="calculator_age_over55">55세 이상</label><span class="checkmark"></span>
-             </li>
-           </ul>
-         </td>
-       </tr>
-
-       <tr><td>주당 운동 횟 수 : </td>
-         <td>
-           <ul class="radioUL" name = "workoutDayPerWeek" id="workoutDayPerWeek">
-             <li>
-               <input type="checkbox" name = "present_code" id="workoutDayPerWeek0~1" value=2048 onclick ="disp(2048,'workoutDayPerWeek0~1')">
-               <label class = 'container'for="workoutDayPerWeek0~1">주3회 가능</label><span class="checkmark"></span>
-             </li>
-             <li>
-               <input type="checkbox" name = "present_code" id="workoutDayPerWeek1~3" value=4096 onclick ="disp(4096,'workoutDayPerWeek1~3')">
-               <label class = 'container'for="workoutDayPerWeek1~3">주4회 가능</label><span class="checkmark"></span>
-             </li>
-             <li>
-               <input type="checkbox" name = "present_code" id="workoutDayPerWeek3~5" value=8192 onclick ="disp(8192,'workoutDayPerWeek3~5')">
-               <label class = 'container'for="workoutDayPerWeek3~5">주5회 가능</label><span class="checkmark"></span>
-             </li>
-           </ul>
-         </td>
-       </tr>
-
-       <tr><td>운동 장소 : </td>
-         <td>
-           <ul class="radioUL" name="place" id="place">
-             <li>
-               <input type="checkbox" id="place_HOME" name="present_code" value=16384 onclick ="disp(16384,'place_HOME')">
-               <label class = 'container' for="place_HOME">HOME</label><span class="checkmark"></span>
-             </li>
-             <li>
-               <input type="checkbox" id="place_GROUND" name="present_code" value=32768 onclick ="disp(32768,'place_GROUND')">
-               <label class = 'container'for="place_GROUND">GROUND</label><span class="checkmark"></span>
-             </li>
-             <li>
-               <input type="checkbox" id='place_GYM' name="present_code" value=65536 onclick ="disp(65536,'place_GYM')">
-               <label class = 'container'for="place_GYM">GYM</label><span class="checkmark"></span>
-             </li>
-           </ul>
-         </td>
-       </tr>
-       <tr><td>운동 시간 : </td>
-         <td>
-           <ul class="radioUL" id="hour">
-             <li>
-               <input type="checkbox" id="hour_under" name="present_code" value=512 onclick ="disp(512,'hour_under')">
-               <label class = 'container'for="hour_under">1시간 미만</label><span class="checkmark"></span>
-             </li>
-             <li>
-               <input type="checkbox" id="hour_over" name="present_code" value=1024 onclick ="disp(1024,'hour_over')">
-               <label class = 'container'for="hour_over">1시간 이상</label><span class="checkmark"></span>
-             </li>
-           </ul>
-         </td>
-       </tr>
-       <tr><td>운동 경력 : </td>
-         <td>
-           <ul class="radioUL" id="career">
-             <li>
-               <input type="checkbox" id="career_under1y" name="present_code" value=32 onclick ="disp(32,'career_under1y')">
-               <label class = 'container'for="career_under1y">1년 이하</label><span class="checkmark"></span>
-             </li>
-             <li>
-               <input type="checkbox" id="career_over1y" name="present_code" value=64 onclick ="disp(64,'career_over1y')">
-               <label class = 'container'for="career_over1y">1년 이상</label><span class="checkmark"></span>
-             </li>
-             <li>
-               <input type="checkbox" id="career_over3y" name="present_code" value=128 onclick ="disp(128,'career_over3y')">
-               <label class = 'container'for="career_over3y">3년 이상</label><span class="checkmark"></span>
-             </li>
-             <li>
-               <input type="checkbox" id="career_over5y" name="present_code" value=256 onclick ="disp(256,'career_over5y')">
-               <label class = 'container'for="career_over5y">5년 이상</label><span class="checkmark"></span>
-             </li>
-           </ul>
-         </td>
-       </tr>
-
-       <tr><td>목표 운동 종류 : </td>
-         <td>
-           <ul class="radioUL"name="purpose" id="purpose">
-             <li>
-               <input type="checkbox" id="purpose_aerobic" name="present_code" value=131072 onclick ="disp(524288,'purpose_aerobic')">
-               <label class = 'container'for="purpose_aerobic">유산소</label><span class="checkmark"></span>
-             </li>
-             <li>
-               <input type="checkbox" id="purpose_hypertrophy" name="present_code" value=262144 onclick ="disp(262144,'purpose_hypertrophy')">
-               <label class = 'container' for="purpose_hypertrophy">근비대</label><span class="checkmark"></span>
-             </li>
-             <li>
-               <input type="checkbox" id="purpose_strength" name="present_code" value=524288 onclick ="disp(131072,'purpose_strength')">
-               <label class = 'container'for="purpose_strength">스트렝스</label><span class="checkmark"></span>
-             </li>
-           </ul>
-         </td>
-       </tr>
-
-     </table>
-     <?php
-     //루틴의 정보 가져오는 부분
-     $SendRoutineID = "SELECT routineID
-                           FROM RoutineInfo";
-     $routineSqlID = mysqli_query($flagtagdb,$SendRoutineID);
-     $routine_ID = mysqli_fetch_all($routineSqlID,MYSQLI_ASSOC);
-
-     $SendRoutineName = "SELECT name
-                           FROM RoutineInfo";
-     $routineSqlName = mysqli_query($flagtagdb,$SendRoutineName);
-     $routine_Name = mysqli_fetch_all($routineSqlName,MYSQLI_ASSOC);
+      document.getElementById(checkbox_id).style.display = 'block';
 
 
-     echo "<div class='row'>";
+    }
+  </script>
+  <h3 class="title">Routine Mall</h3>
+  <div class="container-fluid select-condition">
+    <div class="button-group">
+      <div class="conditions row">
+        <div class="col-6 col-lg-4 col-xl-2 each-condition row">
+          <button class=" condition-button col-12" type="button" onclick="displayCheckbox('sex')">
+            성별
+          </button>
+        </div>
+        <div class="col-6 col-lg-4 col-xl-2 each-condition row">
+          <button class=" condition-button col-12" type="button" onclick="displayCheckbox('age')">
+            나이
+          </button>
+        </div>
+        <div class="col-6 col-lg-4 col-xl-2 each-condition row">
+          <button class=" condition-button col-12" type="button" onclick="displayCheckbox('workoutDayPerWeek')">
+            주당 운동 횟수
+          </button>
+        </div>
+        <div class="col-6 col-lg-4 col-xl-2 each-condition row">
+          <button class=" condition-button col-12" type="button" onclick="displayCheckbox('place')">
+            운동 장소
+          </button>
+        </div>
+        <div class="col-6 col-lg-4 col-xl-2 each-condition row">
+          <button class=" condition-button col-12" type="button" onclick="displayCheckbox('time')">
+            운동 시간
+          </button>
+        </div>
+        <div class="col-6 col-lg-4 col-xl-2 each-condition row">
+          <button class=" condition-button col-12" type="button" onclick="displayCheckbox('career')">
+            운동 경력
+          </button>
+        </div>
+        <div class="col-6 col-lg-4 col-xl-2 each-condition row">
+          <button class=" condition-button col-12" type="button" onclick="displayCheckbox('purpose')">
+            목표 운동 종류
+          </button>
+        </div>
 
-     for ($i=0;$i<count($routine_ID);$i++){
-       echo"<div class='col'>"."<a href='./view.modal.php'>".$routine_Name[$i]['name']."</a>"."</div>";
-       }
-     echo"</div>";
-     ?>
- </body>
+      </div>
+
+
+      <div class="checkbox_container" id="sex_checkbox" style="display:none;">
+        <ul class="row">
+          <li class="form-check">
+            <input type="radio" class="form-check-input" id="calculator_sex_male" name="sex"  value=16 onclick ="disp(16,'calculator_sex_male')">
+            <label class="form-check-label"  for="calculator_sex_male">남자</label>
+          </li>
+          <li class="form-check">
+            <input type="radio" class="form-check-input" id="calculator_sex_female" name="sex" value=8 onclick ="disp(8,'calculator_sex_female')">
+            <label class="form-check-label" for="calculator_sex_female">여자</label>
+          </li>
+          <input type="hidden" id="sex_radio_previous" value_name="0" name="sex_radio_previous"/>
+        </ul>
+      </div>
+      <div class="checkbox_container" id="age_checkbox" style="display:none;">
+        <ul class="row">
+          <li class="form-check">
+            <input type="radio" class="form-check-input" id="calculator_age_under35" name="age" value=1 onclick ="disp(1,'calculator_age_under35')">
+            <label class="form-check-label" for="calculator_age_under35">35세 미만</label>
+          </li>
+          <li class="form-check">
+            <input type="radio" class="form-check-input" id="calculator_age_under55" name="age" value=2 onclick ="disp(2,'calculator_age_under55')">
+            <label class="form-check-label" for="calculator_age_under55">55세 미만</label>
+          </li>
+          <li class="form-check">
+            <input type="radio" class="form-check-input" id="calculator_age_over55" name="age" value=4 onclick ="disp(4,'calculator_age_over55')">
+            <label class="form-check-label" for="calculator_age_over55">55세 이상</label>
+          </li>
+          <input type="hidden" id="age_radio_previous" value_name="0" name="age_radio_previous"/>
+        </ul>
+      </div>
+      <div class="checkbox_container" id="workoutDayPerWeek_checkbox" style="display:none;">
+        <ul class="row">
+          <li class="form-check">
+            <input type="radio" class="form-check-input" name = "workoutDayPerWeek" id="workoutDayPerWeek0~1" value=2048 onclick ="disp(2048,'workoutDayPerWeek0~1')">
+            <label class="form-check-label" for="workoutDayPerWeek0~1">주3회 가능</label>
+          </li>
+          <li class="form-check">
+            <input type="radio" class="form-check-input" name = "workoutDayPerWeek" id="workoutDayPerWeek1~3" value=4096 onclick ="disp(4096,'workoutDayPerWeek1~3')">
+            <label class="form-check-label" for="workoutDayPerWeek1~3">주4회 가능</label>
+          </li>
+          <li class="form-check">
+            <input type="radio" class="form-check-input" name = "workoutDayPerWeek" id="workoutDayPerWeek3~5" value=8192 onclick ="disp(8192,'workoutDayPerWeek3~5')">
+            <label class="form-check-label" for="workoutDayPerWeek3~5">주5회 가능</label>
+          </li>
+          <input type="hidden" id="workoutDayPerWeek_radio_previous" value_name="0" name="workoutDayPerWeek_radio_previous"/>
+        </ul>
+      </div>
+      <div class="checkbox_container" id="place_checkbox" style="display:none;">
+
+        <ul class="row">
+          <li class="form-check">
+            <input type="radio" class="form-check-input" id="place_HOME" name="place" value=16384 onclick ="disp(16384,'place_HOME')">
+            <label class="form-check-label"  for="place_HOME">HOME</label>
+          </li>
+          <li class="form-check">
+            <input type="radio" class="form-check-input" id="place_GROUND" name="place" value=32768 onclick ="disp(32768,'place_GROUND')">
+            <label class="form-check-label" for="place_GROUND">GROUND</label>
+          </li>
+          <li class="form-check">
+            <input type="radio" class="form-check-input" id='place_GYM' name="place" value=65536 onclick ="disp(65536,'place_GYM')">
+            <label class="form-check-label" for="place_GYM">GYM</label>
+          </li>
+          <input type="hidden" id="place_radio_previous" value_name="0" name="place_radio_previous"/>
+        </ul>
+      </div>
+      <div class="checkbox_container" id="time_checkbox" style="display:none;">
+
+        <ul class="row">
+          <li class="form-check">
+            <input type="radio" class="form-check-input" id="hour_under" name="hour" value=512 onclick ="disp(512,'hour_under')">
+            <label class="form-check-label" for="hour_under">1시간 미만</label>
+          </li>
+          <li class="form-check">
+            <input type="radio" class="form-check-input" id="hour_over" name="hour" value=1024 onclick ="disp(1024,'hour_over')">
+            <label class="form-check-label" for="hour_over">1시간 이상</label>
+          </li>
+          <input type="hidden" id="hour_radio_previous" value_name="0" name="hour_radio_previous"/>
+        </ul>
+      </div>
+      <div class="checkbox_container" id="career_checkbox" style="display:none;">
+
+        <ul class="row">
+          <li class="form-check">
+            <input type="radio" class="form-check-input" id="career_over1y" name="career" value=64 onclick ="disp(64,'career_over1y')">
+            <label class="form-check-label" for="career_over1y">1년 이상</label>
+          </li>
+          <li class="form-check">
+            <input type="radio" class="form-check-input" id="career_over3y" name="career" value=128 onclick ="disp(128,'career_over3y')">
+            <label class="form-check-label" for="career_over3y">3년이상</label>
+          </li>
+          <li class="form-check">
+            <input type="radio" class="form-check-input" id="career_over5y" name="career" value=256 onclick ="disp(256,'career_over5y')">
+            <label class="form-check-label" for="career_over5y">5년 이상</label>
+          </li>
+          <input type="hidden" id="career_radio_previous" value_name="0" name="career_radio_previous"/>
+        </ul>
+      </div>
+      <div class="checkbox_container" id="purpose_checkbox" style="display:none;">
+
+        <ul class="row">
+          <li class="form-check">
+            <input type="radio" class="form-check-input" id="purpose_aerobic" name="purpose" value=131072 onclick ="disp(524288,'purpose_aerobic')">
+            <label class="form-check-label" for="purpose_aerobic">유산소</label>
+          </li>
+          <li class="form-check">
+            <input type="radio" class="form-check-input" id="purpose_hypertrophy" name="purpose" value=262144 onclick ="disp(262144,'purpose_hypertrophy')">
+            <label class="form-check-label"  for="purpose_hypertrophy">근비대</label>
+          </li>
+          <li class="form-check">
+            <input type="radio" class="form-check-input" id="purpose_strength" name="purpose" value=524288 onclick ="disp(131072,'purpose_strength')">
+            <label class="form-check-label" for="purpose_strength">스트렝스</label>
+          </li>
+          <input type="hidden" id="purpose_radio_previous" value_name="0" name="purpose_radio_previous"/>
+        </ul>
+      </div>
+    </div>
+
+    <div class="selected-condition">
+      <label class="form-check-label" id="selected_calculator_sex_male" for="calculator_sex_male" style="display:none;">남자<i class="far fa-times-circle"></i></label>
+      <label class="form-check-label" id="selected_calculator_sex_female" for="calculator_sex_female" style="display:none;">여자<i class="far fa-times-circle"></i></label>
+      <label class="form-check-label" id="selected_calculator_age_under35" for="calculator_age_under35" style="display:none;">35세 미만<i class="far fa-times-circle"></i></label>
+      <label class="form-check-label" id="selected_calculator_age_under55" for="calculator_age_under55" style="display:none;">55세 미만<i class="far fa-times-circle"></i></label>
+      <label class="form-check-label" id="selected_calculator_age_over55" for="calculator_age_over55" style="display:none;">55세 이상<i class="far fa-times-circle"></i></label>
+      <label class="form-check-label" id="selected_workoutDayPerWeek0~1" for="workoutDayPerWeek0~1" style="display:none;">주3회 가능<i class="far fa-times-circle"></i></label>
+      <label class="form-check-label" id="selected_workoutDayPerWeek1~3" for="workoutDayPerWeek1~3" style="display:none;">주4회 가능<i class="far fa-times-circle"></i></label>
+      <label class="form-check-label" id="selected_workoutDayPerWeek3~5" for="workoutDayPerWeek3~5" style="display:none;">주5회 가능<i class="far fa-times-circle"></i></label>
+      <label class="form-check-label"  id="selected_place_HOME" for="place_HOME" style="display:none;">HOME<i class="far fa-times-circle"></i></label>
+      <label class="form-check-label" id="selected_place_GROUND" for="place_GROUND" style="display:none;">GROUND<i class="far fa-times-circle"></i></label>
+      <label class="form-check-label" id="selected_place_GYM" for="place_GYM" style="display:none;">GYM<i class="far fa-times-circle"></i></label>
+      <label class="form-check-label" id="selected_hour_over" for="hour_over" style="display:none;">1시간 이상<i class="far fa-times-circle"></i></label>
+      <label class="form-check-label" id="selected_hour_under" for="hour_under" style="display:none;">1시간 미만<i class="far fa-times-circle"></i></label>
+      <label class="form-check-label" id="selected_career_over1y" for="career_over1y" style="display:none;">1년 이상<i class="far fa-times-circle"></i></label>
+      <label class="form-check-label" id="selected_career_over3y" for="career_over3y" style="display:none;">3년이상<i class="far fa-times-circle"></i></label>
+      <label class="form-check-label" id="selected_career_over5y" for="career_over5y" style="display:none;">5년 이상<i class="far fa-times-circle"></i></label>
+      <label class="form-check-label" id="selected_purpose_aerobic" for="purpose_aerobic" style="display:none;">유산소<i class="far fa-times-circle"></i></label>
+      <label class="form-check-label"  id="selected_purpose_hypertrophy" for="purpose_hypertrophy" style="display:none;">근비대<i class="far fa-times-circle"></i></label>
+      <label class="form-check-label" id="selected_purpose_strength" for="purpose_strength" style="display:none;">스트렝스<i class="far fa-times-circle"></i></label>
+    </div>
+  </div>
+  <hr>
+
+     <?php include "view/routineModal.php" ?>
+</body>
 </html>

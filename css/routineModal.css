@@ -1,0 +1,24 @@
+.modal{
+  z-index: 15;
+}
+
+.modal-content{
+  width:95%;
+  padding:0;
+}
+
+.routineGraph{
+  align: center;
+}
+
+.routineMall-container{
+  justify-content: flex-start;
+
+}
+.routineMall-item{
+  flex:1 1 auto;
+  text-align: center;
+  background-color: #e1e3e6;
+  margin-bottom: 4px;
+  border-right: 2px solid white;
+}

@@ -1,4 +1,23 @@
 <?php
+if (!function_exists('mysqli_fetch_all')) {
+    function mysqli_fetch_all($result, $mode = 0) {
+        $all = FALSE;
+        if ($result) {
+            $all = array();
+            $i = 0;
+            while($row = mysqli_fetch_array($result)) {
+                $all[$i] = array();
+                foreach($row as $key => $value) {
+                    if (!is_numeric($key)) {
+                        $all[$i][$key] = $value;
+                    }
+                }
+                $i++;
+            }
+        }
+        return $all;
+    }
+}
   $flagtagdb = mysqli_connect("localhost", "flagtag", "john6549", "flagtag");
   include_once $_SERVER['DOCUMENT_ROOT']."/model/constructRoutine.php";
 

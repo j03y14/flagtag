@@ -14,10 +14,6 @@
   $completeDays = mysqli_fetch_all($sqlResult);
 
   $today = date_create(date("Y-n-j")); // 0을 포함하지 않는 일
-  var_dump($completeDays);
-
-
-
 
  ?>
 
@@ -80,15 +76,15 @@
         for ($j = 0; $j < 7; $j++) {
             $tdday = date("Y-m-d",strtotime($year.'-'.$month.'-'.$day));
             // 8. 첫번째 주이고 시작요일보다 $j가 작거나 마지막주이고 $j가 마지막 요일보다 크면 표시하지 않음
-            if(array_search($tdday,array_column($completeDays,'date'))!==FALSE){
-                echo '<td class="days" valign="top" style="background-color:#caf77b">';
-            }else{
-              echo '<td class="days" valign="top">';
-            }
+
 
             if (!(($i == 1 && $j < $start_week) || ($i == $total_week && $j > $last_week))) {
 
-
+              if(array_search($tdday,array_column($completeDays,'date'))!==FALSE){
+                  echo '<td class="days" valign="top" style="background-color:#caf77b">';
+              }else{
+                echo '<td class="days" valign="top">';
+              }
 
                 if ($j == 0) {
                     // 9. $j가 0이면 일요일이므로 빨간색
@@ -118,6 +114,8 @@
 
                 // 14. 날짜 증가
                 $day++;
+            }else{
+              echo '<td class="days" valign="top">';
             }
 
             echo '<br>';

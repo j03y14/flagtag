@@ -1,0 +1,88 @@
+ul{
+    list-style-type: none;
+}
+table{
+  width:100%;
+}
+.button-group{
+  width:100%;
+}
+.checkbox_container{
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  margin-top: 20;
+  margin-bottom: 20;
+}
+.conditions{
+  width:100%;
+  margin-left:0;
+  margin-right:0;
+  justify-content: flex-start;
+}
+.row{
+  margin:0;
+}
+.condition-button{
+  display: -webkit-flex;
+  border:1px solid #bfc0c1;
+  color:#333435;
+  font-weight: 800;
+  font-size: 17px;
+  background-color: #e6e8ed;
+  padding:10 20;
+}
+.col-6{
+  padding:0;
+}
+.title{
+  text-align: center;
+}
+.routine-button{
+  margin-top: 20px
+}
+.selected-condition{
+  display: flex;
+  flex-wrap:wrap;
+  font-size:20px;
+
+}
+.form-check{
+  font-size:20px;
+  margin-right: 10px;
+}
+.form-check-input{
+  vertical-align: middle;
+  height:100%;
+  margin-top:0;
+}
+.routineMall-item{
+  text-align: center;
+  background-color: #e1e3e6;
+  margin-bottom: 4px;
+}
+.routine-title{
+  font-weight: bold;
+  
+}
+
+@media only screen and (min-width: 992px){
+
+  .condition-button{
+    height:40px;
+  }
+  .each-condition{
+    flex-basis: 14.28%;
+  }
+  .form-check{
+    font-size:25px;
+  }
+}
+@media only screen and (min-width: 1200px){
+
+  .condition-button{
+    height:50px;
+  }
+  .form-check{
+    font-size:25px;
+  }
+}

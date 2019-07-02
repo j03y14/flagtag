@@ -22,7 +22,7 @@
         저장하는 과정에서 문제가 생겼습니다. 관리자에게 문의해주세요';
         echo mysqli_error($flagtagdb);
       } else {
-        echo '<meta charset="utf-8"> 성공했습니다. <a href="../index.php">돌아가기</a>';
+        echo '<meta charset="utf-8"> 성공했습니다. <a href="../index.php?menu=main">돌아가기</a>';
         echo '<br><br>'.$thisyear.$thismonth.$today;
 
       }

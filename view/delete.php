@@ -1,4 +1,6 @@
-
+<!-->
+회원 탈퇴
+<-->
 <HEAD><meta charset="utf-8">
   <TITLE>delete</TITLE>
 
