@@ -83,7 +83,7 @@ if(!empty($_POST)){
       echo "오류<br>";
       echo mysqli_error($flagtagdb);
     }
-    header("Location: ../index.php");
+    header("Location: ../index.php?menu=main");
   }
 
 

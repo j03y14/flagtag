@@ -22,3 +22,22 @@
   margin-bottom: 4px;
   border-right: 2px solid white;
 }
+
+.routine-info{
+  color: #a6a69c;
+  display: block;
+}
+
+.routine-info li{
+  float:left;
+  margin-right: 5px;
+  display: block;
+}
+
+.routine-info li::after{
+  padding-left: 5px;
+  content: '|';
+}
+.routine-info li:last-child::after{
+  content:'';
+}

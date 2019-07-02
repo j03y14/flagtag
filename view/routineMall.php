@@ -27,12 +27,12 @@
 
     var code_arr = <?php echo json_encode($code_array); ?>;
     var i = 0;
-
+    //x가 체크박스 각 항목에 해당하는 숫자, id는 체크박스의 id
     function disp(x,id){
       console.log(id+'호출');
       var nowChecked = document.getElementById(id);
       console.log('nowchecked: '+ nowChecked.checked);
-      var con = document.getElementsByClassName('col');
+      var con = document.getElementsByClassName('routineMall-item');
       //선택된 radio button의 분류, name을 불러온다.
       var name = nowChecked.name;
       console.log('name: '+ name);
@@ -230,6 +230,10 @@
 
         <ul class="row">
           <li class="form-check">
+            <input type="radio" class="form-check-input" id="career_under1y" name="career" value=32 onclick ="disp(32,'career_over1y')">
+            <label class="form-check-label" for="career_under1y">1년 이하</label>
+          </li>
+          <li class="form-check">
             <input type="radio" class="form-check-input" id="career_over1y" name="career" value=64 onclick ="disp(64,'career_over1y')">
             <label class="form-check-label" for="career_over1y">1년 이상</label>
           </li>
@@ -278,6 +282,7 @@
       <label class="form-check-label" id="selected_place_GYM" for="place_GYM" style="display:none;">GYM<i class="far fa-times-circle"></i></label>
       <label class="form-check-label" id="selected_hour_over" for="hour_over" style="display:none;">1시간 이상<i class="far fa-times-circle"></i></label>
       <label class="form-check-label" id="selected_hour_under" for="hour_under" style="display:none;">1시간 미만<i class="far fa-times-circle"></i></label>
+      <label class="form-check-label" id="selected_career_under1y" for="career_under1y" style="display:none;">1년 이하<i class="far fa-times-circle"></i></label>
       <label class="form-check-label" id="selected_career_over1y" for="career_over1y" style="display:none;">1년 이상<i class="far fa-times-circle"></i></label>
       <label class="form-check-label" id="selected_career_over3y" for="career_over3y" style="display:none;">3년이상<i class="far fa-times-circle"></i></label>
       <label class="form-check-label" id="selected_career_over5y" for="career_over5y" style="display:none;">5년 이상<i class="far fa-times-circle"></i></label>

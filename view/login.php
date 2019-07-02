@@ -24,7 +24,9 @@
         </div>
 
 
-        <button type="submit" class="btn btn-primary" value="로그인">Submit</button>
+        <button type="submit" class="btn btn-primary" value="로그인">로그인</button>
+        <input type="button" class = "btn btn-primary" value="회원가입" onclick="window.location.href='http://www.hyperlinkcode.com/button-links.php'" />
+
       </form>
     </div>
 
