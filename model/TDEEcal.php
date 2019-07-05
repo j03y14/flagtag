@@ -39,7 +39,7 @@
     echo '<meta charset="utf-8"> BMR(기초대사량):'.$BMR;
     echo'<br><meta charset="utf-8"> TDEE(1일 에너지 소비량):'.$TDEE;
     echo'<br><meta charset="utf-8"> 목표 체중에 따르는 하루 섭취열량:'.$DIETcalorie_per_day;
-    header("Location: ../index.php?menu=mypage");
+    header("Location: ../index.php?menu=mypage#helloUser");
   }
   }
 

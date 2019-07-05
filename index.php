@@ -61,10 +61,11 @@
     session_start();
     if(!isset($_SESSION['is_login'])){
       include "view/header.html";
-      if($_GET['menu']!='login'){
+      if($_GET['menu']!='login' && $_GET['menu']!='join'){
         echo "<script> window.location.href = '../index.php?menu=login';</script>";
       }
-    }else{
+    }
+    else{
       include "view/loginHeader.php";
     }
   ?>

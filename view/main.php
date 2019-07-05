@@ -58,46 +58,68 @@
      echo "user 루틴 이름을 가져오는 과정에서 문제가 생겼습니다.<br>";
      echo mysqli_error($flagtagdb)."<br><br>";
    }
-
+   $RMSquat=$user_information['1RM_squat'];
+   $RMBenchpress=$user_information['1RM_benchpress'];
+   $RMDeadlift=$user_information['1RM_deadlift'];
    $maxWeek = $max_routine['maxweek'];
    $maxDay = $max_routine['maxday'];
    $thisWeek = $user_information['week'];
    $thisDay = $user_information['day'];
 
+
+
    if($maxWeek<$thisWeek){
 
-     echo "<h3><a href='?menu=routine'>루틴 완료! 루틴 새로 선택하러 가기</a> ";
+     echo "<h3><a href='?menu=routineMall'>루틴 완료! 루틴 새로 선택하러 가기</a> ";
    }else{
      echo "<div class='container todayRoutine justify-content-center'>";
      echo "<h1>Week ".$thisWeek."- Day ".$thisDay."</h1><br>";
 
      include "view/timer.php";
+     if(!$RMSquat&&!$RMBenchpress&&!$RMDeadlift){
+       echo "<h5><a href='?menu=mypage#tt' style='color:red;'>기준무게가 없습니다, 1RM 입력하러가기</a></h5>";
+     }
 
 
+     //루틴의 이름이 저장되어 있다.
      $userRoutine = $user_information['user_routine'];
+
+     //하루의 루틴이 저장되어 있다.
      $SendRoutineInfo = "SELECT *
                            FROM $userRoutine
                            WHERE week = $thisWeek && day = $thisDay";
      $routineSql = mysqli_query($flagtagdb,$SendRoutineInfo);
      $routine_information = mysqli_fetch_array($routineSql);
-     //내일은 쉬는날인지 정보 가져오는 부분
+
+     //내일의 정보를 가져와서 쉬는 날인지 확인한다.
      $SendBreakInfo = "SELECT *
                            FROM $userRoutine
                            WHERE days = $routine_information[days]+1 ";
      $breakSql = mysqli_query($flagtagdb,$SendBreakInfo);
      $break_information = mysqli_fetch_array($breakSql);
 
+     //루틴 종류를 저장하는 배열
+     $workoutTypes=array();
+
+     //$routine_information이 연관 배열이라 인덱스가 문자열인 것과 숫자인 것 둘 다 있으므로 /2 한 수 만큼 for문을 돈다.
      for($i=3;$i<count($routine_information)/2;$i+=3){
+       //set의 type, weight, times가 null이면 continue
        if($routine_information[$i]==NULL) continue;
+       //type이 달라지면
        if($routine_information[$i]!=$routine_information[$i-3]){
 
+         //$routine_information에 처음에 들어있는 것은 숫자이므로 숫자가 아닐 때 닫는 div를 넣어준다.
          if(!is_numeric($routine_information[$i-3])){
            echo "</div>";
            echo "<h3><p>".$routine_information[$i]."</p></h3><hr>";
            echo "<div class='row todayRow equal 1justify-content-center'>";
+           //운동의 이름들을 다 배열에 추가한다.
+           array_push($workoutTypes,$routine_information[$i]);
          }else{
            echo "<h3><p>".$routine_information[$i]."</p></h3><hr>";
-          echo "<div class='row todayRow equal 1justify-content-center'>";
+           echo "<div class='row todayRow equal 1justify-content-center'>";
+           //운동의 이름들을 다 배열에 추가한다.
+           array_push($workoutTypes,$routine_information[$i]);
          }
 
 
@@ -134,6 +156,14 @@
      }
      echo "</div>";
      ?>
+     <!--운동 설명 부분-->
+     <?php
+     //배열에 저장된 운동들 중 중복되어 있는 것을 제거한다.
+     $workoutTypes = array_unique($workoutTypes);
+     var_dump($workoutTypes);
+      ?>
+
+
      <!--주 루틴 부분-->
      <div class="container">
        <?php
