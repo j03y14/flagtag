@@ -61,7 +61,9 @@
     session_start();
     if(!isset($_SESSION['is_login'])){
       include "view/header.html";
-
+      if($_GET['menu']!='login'){
+        echo "<script> window.location.href = '../index.php?menu=login';</script>";
+      }
     }else{
       include "view/loginHeader.php";
     }

@@ -25,13 +25,11 @@
 
 .routine-info{
   color: #a6a69c;
-  display: inline-block;
 }
-
 .routine-info li{
   float:left;
   margin-right: 5px;
-  display: inline-block;
+  font
 }
 
 .routine-info li::after{

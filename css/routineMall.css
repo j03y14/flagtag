@@ -22,20 +22,23 @@ table{
 .row{
   margin:0;
 }
-.condition-button{
-  display: -webkit-flex;
-  border:1px solid #bfc0c1;
-  color:#333435;
-  font-weight: 800;
-  font-size: 17px;
-  background-color: #e6e8ed;
-  padding:10 20;
+.condition-button {
+    display: -webkit-flex;
+    border: 1px solid white;
+    color: #333435;
+    font-weight: 800;
+    font-size: 17px;
+    background-color: #e6e8ed;
+    padding: 10 20;
+    border-radius: 10px 0px 10px 0px;
+    box-shadow: inset 0px -1px 3px 1px;
 }
 .col-6{
   padding:0;
 }
 .title{
   text-align: center;
+  font-weight: bolder;
 }
 .routine-button{
   margin-top: 20px
@@ -62,7 +65,7 @@ table{
 }
 .routine-title{
   font-weight: bold;
-  
+
 }
 
 @media only screen and (min-width: 992px){
