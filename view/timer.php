@@ -44,22 +44,29 @@ timer id를 인자값으로 하여 setInerval을 종료시킴
 var timer;
 var checkboxButton;
 var timerButton;
-var userSetMin;
-var userSetSec;
+var userSetMin = 2;
+var userSetSec = 0;
   function timerStart(){
       document.getElementById('timerStart').disabled = 'disabled';
+      //각 세트가 끝나면 누르는 체크박스 버튼
       checkboxButton = document.getElementsByClassName('checkboxButton');
+      //타이머 시작 버튼
       timerButton = document.getElementsByClassName('timerButton');
+      //타이머가 실행되어 있는 동안 중복 실행을 막기 위해 버튼들을 disable 시킨다.
       for(var i=0; i<checkboxButton.length;i++){
         checkboxButton[i].disabled = 'disable';
       }
       for(var i=0; i<timerButton.length;i++){
         timerButton[i].disabled = 'disable';
       }
+      //1000ms 마다 첫 번째 매개변수로 들어간 함수를 실행
       timer = setInterval(function(){
       minute = document.getElementById('minute').innerHTML;
       second = document.getElementById('second').innerHTML;
-      if(minute == '0' && second =='0'){
+      console.log(second);
+      //분과 초가 모두 0이면 resetTimer() 함수 호출
+      if(parseInt(minute) == 0 && parseInt(second) ==0){
+        console.log('resetTimer');
         resetTimer();
       }else{
         //분이 0이 아닐 때
@@ -82,6 +89,7 @@ var userSetSec;
     userSetSec = document.getElementById('second').innerHTML;
     userSetMin = document.getElementById('minute').innerHTML;
   }
+
   function resetTimer(){
     clearInterval(timer);
     document.getElementById('second').innerHTML = userSetSec;
