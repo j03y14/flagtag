@@ -3,12 +3,9 @@
 if(isset($_GET['type'])){
 
 }else{
-?>
-  <div class="title-container">
-    <h2 class=title>운동 설명 페이지</h2>;
-  </div>
+  echo "<h2>운동 설명 페이지</h2>";
 
-<?php
+
 }
 
  ?>

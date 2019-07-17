@@ -83,6 +83,6 @@
   <?php
     include "view/footer.html";
    ?>
-  <
+  
 
 </body>

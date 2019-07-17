@@ -1,0 +1,29 @@
+.content-container{
+  text-align: justify;
+  width: inherit;
+}
+.image{
+  width:380px;
+}
+.image-container{
+  text-align: center;
+  width:100%;
+}
+.warning span{
+  color:red;
+  font-weight: 1000;
+}
+.how-to, .image-container{
+  margin-bottom: 16px;
+}
+.source{
+  font-size: 10px;
+}
+@media screen and (min-width: 960px) {
+  .image{
+    width:600px;
+  }
+  .workoutTypes-container{
+    width:720px;
+  }
+}

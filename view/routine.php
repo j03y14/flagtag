@@ -33,7 +33,7 @@
     $i=0;
     $routine_Name[$i]['name'] = $user_information['user_routine'];
 
-    $SendRoutineInfo = "SELECT maxday,maxweek
+    $SendRoutineInfo = "SELECT maxday,maxweek,routineExplanation
                           FROM RoutineInfo
                           WHERE name='{$routine_Name[$i]['name']}'";
     $routineInfoResult = mysqli_query($flagtagdb,$SendRoutineInfo);
@@ -42,6 +42,7 @@
     }
     $Routine_information = mysqli_fetch_array($routineInfoResult);
 
+    $routineExplanation = $Routine_information['routineExplanation'];
     $maxday = $Routine_information['maxday'];
     $maxweek= $Routine_information['maxweek'];
 
@@ -62,6 +63,7 @@
     echo "<div class='container'>";
     echo "<h2 class='routine-title'>".$routine_Name[$i]['name']."</h2>";
     echo "<hr>";
+    echo "<h6>".$routineExplanation."</h6>";
     include "view/routineTable.php";
     echo "<hr>";
     include "view/routineGraph.php";

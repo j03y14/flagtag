@@ -44,6 +44,8 @@ timer id를 인자값으로 하여 setInerval을 종료시킴
 var timer;
 var checkboxButton;
 var timerButton;
+var userSetMin;
+var userSetSec;
   function timerStart(){
       document.getElementById('timerStart').disabled = 'disabled';
       checkboxButton = document.getElementsByClassName('checkboxButton');
@@ -75,10 +77,15 @@ var timerButton;
       }
     }, 1000);
   }
+  //사용자 쉬는시간 설정함수, 시간을 바꿀 때 마다 실행시켜서 저장함
+  function userSet(){
+    userSetSec = document.getElementById('second').innerHTML;
+    userSetMin = document.getElementById('minute').innerHTML;
+  }
   function resetTimer(){
     clearInterval(timer);
-    document.getElementById('second').innerHTML = 0;
-    document.getElementById('minute').innerHTML = 2;
+    document.getElementById('second').innerHTML = userSetSec;
+    document.getElementById('minute').innerHTML = userSetMin;
     document.getElementById('timerStart').disabled = false;
     for(var i=0; i<checkboxButton.length;i++){
       checkboxButton[i].disabled = false;
@@ -95,6 +102,7 @@ var timerButton;
     }else{
       document.getElementById('minute').innerHTML = 0;
     }
+    userSet();
   }
   function minuteDown(){
     minute = document.getElementById('minute').innerHTML;
@@ -103,6 +111,7 @@ var timerButton;
     }else{
       document.getElementById('minute').innerHTML = 60;
     }
+    userSet();
   }
   function secondUp(){
     second = document.getElementById('second').innerHTML;
@@ -111,6 +120,7 @@ var timerButton;
     }else{
       document.getElementById('second').innerHTML = 0;
     }
+    userSet();
   }
   function secondDown(){
     second = document.getElementById('second').innerHTML;
@@ -119,6 +129,7 @@ var timerButton;
     }else{
       document.getElementById('second').innerHTML = 60;
     }
+    userSet();
   }
 </script>
 <div class="container timerContainer">

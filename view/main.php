@@ -10,6 +10,7 @@
      font.black {font-family: tahoma;font-size: 20px;color: #000000;}
    </style>
    <link rel="stylesheet" href="/css/main.css">
+   <link rel="stylesheet" href="./workoutTypes/workoutTypes.css">
    <script type="text/javascript">
 
    function showWeek(week){
@@ -69,8 +70,7 @@
 
 
    if($maxWeek<$thisWeek){
-
-     echo "<h3><a href='?menu=routineMall'>루틴 완료! 루틴 새로 선택하러 가기</a> ";
+     include "./view/about.php";
    }else{
      echo "<div class='container todayRoutine justify-content-center'>";
      echo "<h1>Week ".$thisWeek."- Day ".$thisDay."</h1><br>";
@@ -111,12 +111,13 @@
          //$routine_information에 처음에 들어있는 것은 숫자이므로 숫자가 아닐 때 닫는 div를 넣어준다.
          if(!is_numeric($routine_information[$i-3])){
            echo "</div>";
-           echo "<h3><p>".$routine_information[$i]."</p></h3><hr>";
+           //a태그로 type이 바뀔때 마다 #링크 걸었다.
+           echo "<h3><a href = '../index.php?menu=main#".$routine_information[$i]."'>".$routine_information[$i]."</a></h3><hr>";
            echo "<div class='row todayRow equal 1justify-content-center'>";
            //운동의 이름들을 다 배열에 추가한다.
            array_push($workoutTypes,$routine_information[$i]);
          }else{
-           echo "<h3><p>".$routine_information[$i]."</p></h3><hr>";
+           echo "<h3><a href = '../index.php?menu=main#".$routine_information[$i]."'>".$routine_information[$i]."</a></h3><hr>";
            echo "<div class='row todayRow equal 1justify-content-center'>";
            //운동의 이름들을 다 배열에 추가한다.
            array_push($workoutTypes,$routine_information[$i]);
@@ -137,6 +138,10 @@
     }
     echo "</div>";
     echo "<p>";
+    if($thisWeek==1){
+    echo "<h8> complete 버튼을 누르시면 다음 루틴으로 넘어갑니다.<br>
+          back버튼을 누르시면 해당 날짜의 운동기록이 calender에서 사라지며,
+          <br>이전의 루틴으로 돌아갑니다.<br><br><h8>";}
      echo "<a href='model/dayIncrement.php?maxDay=$maxDay&thisWeek=$thisWeek&thisDay=$thisDay&routineID=$routineID&totalDay=$totalDay'>
        <input class='btn btn-secondary' type='button' value='complete' >
      </a>";
@@ -160,7 +165,13 @@
      <?php
      //배열에 저장된 운동들 중 중복되어 있는 것을 제거한다.
      $workoutTypes = array_unique($workoutTypes);
-     var_dump($workoutTypes);
+     //중복이 제거된 운동들이 들어 있는 배열의 운동 이름과 같은 파일을 include한다.
+     for($j=0;$j<count($workoutTypes);$j++){
+       echo '<hr>';
+       echo "<div class='container workoutTypes-container' id='".$workoutTypes[$j]."'>";//#링크를 받기 위한 ID설정
+       include($_SERVER['DOCUMENT_ROOT'].'/workoutTypes/'.$workoutTypes[$j].'.php');
+       echo "</div>";
+     }
       ?>
 
 

@@ -8,10 +8,8 @@ table{
   width:100%;
 }
 .checkbox_container{
-  border-top: 1px solid;
-  border-bottom: 1px solid;
+  border-top: 1px solid lightgrey;
   margin-top: 20;
-  margin-bottom: 20;
 }
 .conditions{
   width:100%;
@@ -28,10 +26,8 @@ table{
     color: #333435;
     font-weight: 800;
     font-size: 17px;
-    background-color: #e6e8ed;
+    background-color: white;
     padding: 10 20;
-    border-radius: 10px 0px 10px 0px;
-    box-shadow: inset 0px -1px 3px 1px;
 }
 .col-6{
   padding:0;

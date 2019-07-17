@@ -230,7 +230,7 @@
 
         <ul class="row">
           <li class="form-check">
-            <input type="radio" class="form-check-input" id="career_under1y" name="career" value=32 onclick ="disp(32,'career_over1y')">
+            <input type="radio" class="form-check-input" id="career_under1y" name="career" value=32 onclick ="disp(32,'career_under1y')">
             <label class="form-check-label" for="career_under1y">1년 이하</label>
           </li>
           <li class="form-check">
