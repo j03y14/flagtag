@@ -46,7 +46,21 @@ var checkboxButton;
 var timerButton;
 var userSetMin = 2;
 var userSetSec = 0;
+//타이머가 끝나야 할 시점
+var endTime;
+//중간 중간의 시점
+var processTime;
+
   function timerStart(){
+      //타이머 버튼을 누른 시점
+      endTime = new Date();
+      //그 시점에 userSetMin만큼을 더해준다.
+      endTime.setMinutes(endTime.getMinutes() + parseInt(userSetMin));
+      //그 시점에 userSetSec만큼을 더해준다.
+      endTime.setSeconds(endTime.getSeconds() + parseInt(userSetSec));
+      //=>>>endTime에는 끝나야할 시점이 들어있음
+
+      //타이머 start 버튼 disable
       document.getElementById('timerStart').disabled = 'disabled';
       //각 세트가 끝나면 누르는 체크박스 버튼
       checkboxButton = document.getElementsByClassName('checkboxButton');
@@ -59,30 +73,29 @@ var userSetSec = 0;
       for(var i=0; i<timerButton.length;i++){
         timerButton[i].disabled = 'disable';
       }
+
       //1000ms 마다 첫 번째 매개변수로 들어간 함수를 실행
       timer = setInterval(function(){
-      minute = document.getElementById('minute').innerHTML;
-      second = document.getElementById('second').innerHTML;
-      console.log(second);
-      //분과 초가 모두 0이면 resetTimer() 함수 호출
-      if(parseInt(minute) == 0 && parseInt(second) ==0){
-        console.log('resetTimer');
-        resetTimer();
-      }else{
-        //분이 0이 아닐 때
-        if(minute!=0){
-          if(second==0){
-            document.getElementById('second').innerHTML = 59;
-            document.getElementById('minute').innerHTML = parseInt(minute)-1;
-          }else{
-            document.getElementById('second').innerHTML = parseInt(second)-1;
-          }
-        //분이 0이면
+        //1000ms마다 그 시점을 가져옴
+        processTime = new Date();
+        //끝나야할 시간과 현재의 시간뺌 =>이것은 miliseconds 단위로 되어 있음
+        var timeInterval = endTime - processTime;
+
+        //miliseconds 단위인 것을 분 단위로 바꾸고 오차를 없애기 위해 내림을 함
+        minute = Math.floor(timeInterval/60000);
+        //miliseconds 단위인 것을 초 단위로 바꾸고 오차를 없애기 위해 올림을 함
+        second = Math.ceil((timeInterval%60000)/1000);
+
+        //분과 초가 모두 0보다 작으면 resetTimer() 함수 호출
+        if(parseInt(minute) <= 0 && parseInt(second) <=0){
+          
+          resetTimer();
         }else{
-          document.getElementById('second').innerHTML = parseInt(second)-1;
+          document.getElementById('second').innerHTML = second;
+          document.getElementById('minute').innerHTML = minute;
+
         }
-      }
-    }, 1000);
+      }, 1000);
   }
   //사용자 쉬는시간 설정함수, 시간을 바꿀 때 마다 실행시켜서 저장함
   function userSet(){

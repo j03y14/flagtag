@@ -110,37 +110,37 @@
       <div class="conditions row">
         <div class="col-6 col-lg-4 col-xl-2 each-condition row">
           <button class=" condition-button col-12" type="button" onclick="displayCheckbox('sex')">
-            성별
+            <span class='condition-button-inner'>성별</span>
           </button>
         </div>
         <div class="col-6 col-lg-4 col-xl-2 each-condition row">
           <button class=" condition-button col-12" type="button" onclick="displayCheckbox('age')">
-            나이
+            <span class='condition-button-inner'>나이</span>
           </button>
         </div>
         <div class="col-6 col-lg-4 col-xl-2 each-condition row">
           <button class=" condition-button col-12" type="button" onclick="displayCheckbox('workoutDayPerWeek')">
-            주당 운동 횟수
+            <span class='condition-button-inner'>주당 운동 횟수</span>
           </button>
         </div>
         <div class="col-6 col-lg-4 col-xl-2 each-condition row">
           <button class=" condition-button col-12" type="button" onclick="displayCheckbox('place')">
-            운동 장소
+            <span class='condition-button-inner'>운동 장소</span>
           </button>
         </div>
         <div class="col-6 col-lg-4 col-xl-2 each-condition row">
           <button class=" condition-button col-12" type="button" onclick="displayCheckbox('time')">
-            운동 시간
+            <span class='condition-button-inner'>운동 시간</span>
           </button>
         </div>
         <div class="col-6 col-lg-4 col-xl-2 each-condition row">
           <button class=" condition-button col-12" type="button" onclick="displayCheckbox('career')">
-            운동 경력
+            <span class='condition-button-inner'>운동 경력</span>
           </button>
         </div>
         <div class="col-6 col-lg-4 col-xl-2 each-condition row">
           <button class=" condition-button col-12" type="button" onclick="displayCheckbox('purpose')">
-            목표 운동 종류
+            <span class='condition-button-inner'>목표 운동 종류</span>
           </button>
         </div>
 
