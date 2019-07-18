@@ -17,38 +17,45 @@ return $r;
 
 function final_weight($thisType,$thisWeight){
   global $user_information;
-  if ($thisType == "squat"){
-   echo roundoff($thisWeight*$user_information['1RM_squat'])."kg X ";
- }
- else if ($thisType == "benchpress"){
-   echo roundoff($thisWeight*$user_information['1RM_benchpress'])."kg X";
- }
- else if ($thisType == "deadlift"){
-   echo roundoff($thisWeight*$user_information['1RM_deadlift'])."kg X";
- }
- else if ($thisType == "ohp"){
-   echo roundoff($thisWeight*$user_information['1RM_benchpress']*0.7)."kg X";
- }
- else if ($thisType == "incline_benchpress"){
-   echo roundoff($thisWeight*$user_information['1RM_benchpress']*0.7)."kg X";
- }
- else if ($thisType== "stiffleg_deadlift"){
-   echo roundoff($thisWeight*$user_information['1RM_deadlift']*0.8)."kg X";
- }
- else if ($thisType == "front_squat"){
-   echo roundoff($thisWeight*$user_information['1RM_squat']*0.7)."kg X";
- }
- else if ($thisType == "close_grip_benchpress"){
-   echo roundoff($thisWeight*$user_information['1RM_benchpress']*0.9)."kg X";
- }
- else if ($thisType == "barbellrow"){
-   echo roundoff($thisWeight*$user_information['1RM_benchpress']*0.7)."kg X";
- }
- else if ($thisType == "free_training1"||$thisType =="free_training2"||$thisType=="core_training"){
-   echo "적정 무게 "."X";
- }
- else if($thisType=="chinup"||$thisType=="pullup"){
-   echo "실패지점까지";
- }
+  //weight가 입력아 안 되어 있으면
+  if($thisWeight==NULL){
+    echo "자유 무게 X";
+  }else{
+
+    if ($thisType == "squat"){
+      echo roundoff($thisWeight*$user_information['1RM_squat'])."kg X ";
+    }
+    else if ($thisType == "benchpress"){
+      echo roundoff($thisWeight*$user_information['1RM_benchpress'])."kg X";
+    }
+    else if ($thisType == "deadlift"){
+      echo roundoff($thisWeight*$user_information['1RM_deadlift'])."kg X";
+    }
+    else if ($thisType == "ohp"){
+      echo roundoff($thisWeight*$user_information['1RM_benchpress']*0.7)."kg X";
+    }
+    else if ($thisType == "incline_benchpress"){
+      echo roundoff($thisWeight*$user_information['1RM_benchpress']*0.7)."kg X";
+    }
+    else if ($thisType== "stiffleg_deadlift"){
+      echo roundoff($thisWeight*$user_information['1RM_deadlift']*0.8)."kg X";
+    }
+    else if ($thisType == "front_squat"){
+      echo roundoff($thisWeight*$user_information['1RM_squat']*0.7)."kg X";
+    }
+    else if ($thisType == "close_grip_benchpress"){
+      echo roundoff($thisWeight*$user_information['1RM_benchpress']*0.9)."kg X";
+    }
+    else if ($thisType == "barbellrow"){
+      echo roundoff($thisWeight*$user_information['1RM_benchpress']*0.7)."kg X";
+    }
+    else if ($thisType == "free_training1"||$thisType =="free_training2"||$thisType=="core_training"){
+      echo "적정 무게 "."X";
+    }
+    else if($thisType=="chinup"||$thisType=="pullup"){
+      echo "실패지점까지";
+    }
+
+  }
 }
 ?>
