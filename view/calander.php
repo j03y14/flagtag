@@ -128,5 +128,16 @@
     </table>
   </div>
 
+<div class="container">
+  <?php
+    $sql = "SELECT id FROM exercise WHERE name like 'squat'";
+    $sqlResult = mysqli_query($flagtagdb,$sql);
+    if($sqlResult==false){
+      echo mysqli_error($flagtagdb);
+    }
+    $abd = mysqli_fetch_array($sqlResult);
+    var_dump($abd);
+   ?>
+</div>
 </body>
 </html>

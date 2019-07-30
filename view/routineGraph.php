@@ -13,7 +13,12 @@
 
 </style>
 <?php
-echo "<h4>무게 변화 그래프</h4>";
+if($routine_Name[$i]['name']=='Recon_ron_pullup_program'){
+  echo "<h4>횟수 변화 그래프</h4>";
+}else{
+  echo "<h4>무게 변화 그래프</h4>";
+
+}
 echo"<p>
 
   <div class='routineGraph' id='chart_div_{$routine_Name[$i]['name']}'></div>

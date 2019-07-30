@@ -165,10 +165,12 @@
      <?php
      //배열에 저장된 운동들 중 중복되어 있는 것을 제거한다.
      $workoutTypes = array_unique($workoutTypes);
+     $workoutTypes = array_values($workoutTypes);
      //중복이 제거된 운동들이 들어 있는 배열의 운동 이름과 같은 파일을 include한다.
      for($j=0;$j<count($workoutTypes);$j++){
        echo '<hr>';
        echo "<div class='container workoutTypes-container' id='".$workoutTypes[$j]."'>";//#링크를 받기 위한 ID설정
+       echo $workoutTypes[$j];
        include($_SERVER['DOCUMENT_ROOT'].'/workoutTypes/'.$workoutTypes[$j].'.php');
        echo "</div>";
      }
@@ -204,21 +206,38 @@
                   echo "<div class='col-md-6 col-lg-3 weekRoutine week$a'>";
                   echo "<h3>Week$a-Day$b</h3>";
                   echo "<hr>";
+                  //세트 수만큼
                   for($c=3;$c<count($routine_information)/2;$c+=3){
                     if($routine_information[$c]==NULL) continue;
                     if($routine_information[$c]!=$routine_information[$c-3]){
 
                       if(!is_numeric($routine_information[$c-3])){
                         echo "</div>";
-                        echo "<h3><p>".$routine_information[$c]."</p></h3>";
+
+
+                        $SendExerciseSql = "SELECT korean_name
+                                              FROM exercise
+                                              WHERE name = '{$routine_information[$c]}'";
+                        $exerciseSqlResult = mysqli_query($flagtagdb,$SendExerciseSql);
+                        $exercise_information = mysqli_fetch_array($exerciseSqlResult);
+                        echo "<h3><p>".$exercise_information[0]."</p></h3>";//루틴 타입임.
                         echo "<div class='row equal 1justify-content-center'>";
+
+                        //echo "<h3><p>".$routine_information[$c]."</p></h3>";
+                        //echo "<div class='row equal 1justify-content-center'>";
                       }else{
-                        echo "<h3><p>".$routine_information[$c]."</p></h3>";
+                        $SendExerciseSql = "SELECT korean_name
+                                              FROM exercise
+                                              WHERE name = '{$routine_information[$c]}'";
+                        $exerciseSqlResult = mysqli_query($flagtagdb,$SendExerciseSql);
+                        $exercise_information = mysqli_fetch_array($exerciseSqlResult);
+                        echo "<h3><p>".$exercise_information[0]."</p></h3>";
                        echo "<div class='row equal 1justify-content-center'>";
                       }
 
 
                     }
+
                     echo "<div class = 'col-12'>";
                     echo final_weight($routine_information[$c],$routine_information[$c+1]).$routine_information[$c+2]."<br>";
                     echo "</div>";

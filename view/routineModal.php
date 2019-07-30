@@ -86,13 +86,13 @@ for ($i=0;$i<count($routine_ID);$i++){
       echo "<li>55세 이상</li>";
     }
     if(($routineCode&2048)==2048){
-      echo "<li>주 1회</li>";
+      echo "<li>주 3회</li>";
     }
     if(($routineCode&4096)==4096){
-      echo "<li>주 1~3회</li>";
+      echo "<li>주 4회</li>";
     }
     if(($routineCode&8192)==8192){
-      echo "<li>주 3~5회</li>";
+      echo "<li>주 5회 이상</li>";
     }
     if(($routineCode&16384)==16384){
       echo "<li>집</li>";
@@ -152,7 +152,7 @@ for ($i=0;$i<count($routine_ID);$i++){
       include "view/routineTable.php";
   echo "<hr>";
       include "view/routineGraph.php";
-          
+
   echo"<form action='/model/send_routine.php' method='post'>
         <input name='choosed_routine' value = '{$routine_Name[$i]['name']}' style='display:none;' >
         <input type='submit' name='확인' value='루틴시작'></input>
