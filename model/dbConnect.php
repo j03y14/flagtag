@@ -18,7 +18,7 @@ if (!function_exists('mysqli_fetch_all')) {
         return $all;
     }
 }
-  $flagtagdb = mysqli_connect("localhost", "flagtag", "john6549", "flagtag");
+  $flagtagdb = mysqli_connect("localhost", "", "", "flagtag");
   include_once $_SERVER['DOCUMENT_ROOT']."/model/constructRoutine.php";
 
   function getRoutine($routineName){
